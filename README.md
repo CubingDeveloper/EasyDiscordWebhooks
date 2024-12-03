@@ -21,3 +21,24 @@ In Roblox Studio create a new Script. I recommend putting it in ServerScriptServ
 local EasyDiscordWebhooks = require(game.ReplicatedStorage.EasyDiscordWebhooks)
 
 ```
+Now to connect your webhook use the `:ConnectWebhook()` function. The first argument is the URL of your webhook, you can get the URL by going to your channel with the webhook then Edit Channel > Intergrations > Webhooks then clicking your webhook and then the "Copy Webhook URL" button. The second argument is the webhook configuration which can help you debug or automatically send messages. The second argument is completely optional, and so are the keys in the table. Here I am writing them out just to be clear. After this your code might look like this:
+```lua
+
+local EasyDiscordWebhooks = require(game.ReplicatedStorage.EasyDiscordWebhooks)
+EasyDiscordWebhooks:ConnectWebhook(
+  "YOUR-WEBHOOK-URL-HERE",
+  {
+  	AlertOnConnection = true,
+  
+  	AlertOnJoin = true,
+  	AlertOnStarCreatorJoin = false, --If true it will only add some extra effects, not completely remove it as long as AlertOnJoin is true
+  	
+  	AlertOnLeave: false,
+  	EmbedColor: Color3.new(0, 1, 0.0313725),
+  	
+  	DebugPrintContentBeforePOST: false
+	
+  }
+)
+
+```
