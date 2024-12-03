@@ -14,7 +14,7 @@ Create a new ModuleScript in Roblox Studio and paste the Luau code into the Modu
 ### Making a webhook on Discord
 Go onto your Discord server and right click the channel this webhook should have access to. Then click Edit Channel > Intergrations. Then click the webhooks tab and press "New Webhook". The webhook should show up under the blue button. Here you can change the name of the webhook and even the icon, and if you ever want to change the channel simply use the dropdown box. You can change the icon and name using the modules profile (`EasyDiscordWebhooks.Profiles`) branch. Having issues? This [article](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) explains webhooks in more detail.
 
-### Sending your first message
+### Connecting to your webhook
 In Roblox Studio create a new Script. I recommend putting it in ServerScriptService to keep it organized. Now in this new script require the module you imported. It might look like this:
 ```lua
 
@@ -42,3 +42,7 @@ EasyDiscordWebhooks:ConnectWebhook(
 )
 
 ```
+Perfect! If you have the `AlertOnConnection` value set to true you should be able to run the game and see a message from the webhook!
+
+### Sending your first message
+
