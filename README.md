@@ -67,3 +67,12 @@ myEmbed.Color = Color3.new(0.9, 0.2, 1)
 myEmbed:Send()
 ```
 Now you should see the embed in your webhook channel when you run the game! 
+
+### Using authors
+An author in this module is an object to represent either a Roblox Player or a custom author with a name, url and icon. Authors can be used for creating profiles or adding them to embeds. Here is an example of an custom author:
+```lua
+local myProfile = EasyDiscordWebhooks.
+myProfile.Name = "Super Cool Guy"
+--To add a custom icon set the Image value to your image url
+myProfile:Send("Hey guys, I am the Super Cool Guy :sunglasses:")
+```
