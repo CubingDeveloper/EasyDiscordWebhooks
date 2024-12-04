@@ -71,8 +71,41 @@ Now you should see the embed in your webhook channel when you run the game!
 ### Using authors
 An author in this module is an object to represent either a Roblox Player or a custom author with a name, url and icon. Authors can be used for creating profiles or adding them to embeds. Here is an example of an custom author:
 ```lua
-local myProfile = EasyDiscordWebhooks.
-myProfile.Name = "Super Cool Guy"
---To add a custom icon set the Image value to your image url
-myProfile:Send("Hey guys, I am the Super Cool Guy :sunglasses:")
+local myAuthor = {
+	name = "CubingDeveloper",
+	url = "github.com/CubingDeveloper",
+	icon_url = "https://avatars.githubusercontent.com/u/171845485?s=96&v=4"
+}
+
+```
+Here is an example of an author that is created using their Roblox username. **Using :GetAuthorFromUsername() or :GetAuthorFromID() both use the proxy server RoProxy.com by default. This is configurable but be aware.**
+```lua
+local myAuthor = EasyDiscordWebhooks.Embeds.AuthorFromUsername("CubingDeveloper")
+```
+Now to add this author to an embed we can simply set the `Embed.Author` to `myAuthor`. Here is that combined with the old embed example:
+```lua
+local myAuthor = EasyDiscordWebhooks.Embeds.AuthorFromUsername("CubingDeveloper")
+
+local myEmbed = EasyDiscordWebhooks.Embeds.New()
+myEmbed.Title = "Hello World!"
+myEmbed.EmbedContent = "This is a test embed!"
+myEmbed.Color = Color3.new(0.9, 0.2, 1)
+myEmbed.Author = myAuthor
+
+myEmbed:Send()
+```
+Now you will see the author on your embed!
+
+### Using profiles
+Profiles is a useful feature of this module that allows you to use the same webhook but for different icons and names. This could be useful for separating different messages and showing who used the webhook without using authors. You can create a profile like this:
+```lua
+local myProfile = EasyDiscordModule.Profiles.New()
+```
+Profiles can also be generated using authors:
+```lua
+local myProfile = EasyDiscordModule.Profiles.FromAuthor(EasyDiscordModule.Embeds.AuthorFromUsername("CubingDeveloper"))
+```
+Now to send a message using this profile you can use the `:Send()` method. It is quite similar to the `EasyDiscordWebhook.Post()` function except it uses the profile to send this message. Using `:Send()` also adds supports for embeds. For example:
+```lua
+myProfile:Send("Hello I am CubingDeveloper!", "I like programming.", myEmbed --[[Not defined in this code snippet and is just an example]])
 ```
