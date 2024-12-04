@@ -73,7 +73,7 @@ An author in this module is an object to represent either a Roblox Player or a c
 ```lua
 local myAuthor = {
 	name = "CubingDeveloper",
-	url = "github.com/CubingDeveloper",
+	url = "https://github.com/CubingDeveloper",
 	icon_url = "https://avatars.githubusercontent.com/u/171845485?s=96&v=4"
 }
 
