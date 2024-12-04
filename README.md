@@ -45,4 +45,25 @@ EasyDiscordWebhooks:ConnectWebhook(
 Perfect! If you have the `AlertOnConnection` value set to true you should be able to run the game and see a message from the webhook!
 
 ### Sending your first message
-Sending simple messages is really simple, all you need to do is use the `.Post()` function. The `.Post()` function is very similar to `print()` except it sends it to the webhook. Tables will not be formatted (yet) and instead send something like `table: MEMORY-ADRESS`. To send the message "Hello World!" you could do it one of these ways:
+Sending simple messages is really simple, all you need to do is use the `.Post()` function (only works if a webhook is connected). The `.Post()` function is very similar to `print()` except it sends it to the webhook. Tables will not be formatted (yet) and instead send something like `table: MEMORY-ADRESS`. To send the message "Hello World!" you could do it one of these ways:
+
+```lua
+EasyDiscordWebhooks.Post("Hello World!")
+```
+Or:
+```lua
+EasyDiscordWebhooks.Post("Hello", "World!")
+```
+Both of these will give the same output since the `.Post()` function separates string by space. If you have done this correctly you should see the webhook sending the message "Hello World!". 
+
+### Sending your first embed
+Sending embeds is really easy with the module. Simply create a new embed using the `EasyDiscordWebhooks.Embeds.New()` function. Then you can change the properties just like a table. Here is an example of using embeds.
+```lua
+local myEmbed = EasyDiscordWebhooks.Embeds.New()
+myEmbed.Title = "Hello World!"
+myEmbed.EmbedContent = "This is a test embed!"
+myEmbed.Color = Color3.new(0.9, 0.2, 1)
+
+myEmbed:Send()
+```
+Now you should see the embed in your webhook channel when you run the game! 
