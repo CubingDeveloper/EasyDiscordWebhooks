@@ -1,5 +1,5 @@
 --Module by CubingDeveloper 2024
---Version RELEASE.0.1
+--Version v.1-beta.0.0
 
 local EasyDiscordWebhooks = {}
 local HttpService = game:GetService("HttpService")
@@ -114,6 +114,17 @@ function EasyDiscordWebhooks:ConnectWebhook(url: string, configuration: WebhookC
 		
 	end
 	
+end
+
+--Sends the inputs to the primary webhook.
+function EasyDiscordWebhooks.Post(...:string)
+	local toSend = ""
+	for _,c in {...} do
+		
+		toSend = toSend..tostring(c).." "
+		
+	end
+	HttpService:PostAsync(EasyDiscordWebhooks.CurrentHook.URL, `\{"content": \"{toSend}\"}`)
 end
 
 -- EVENTS
