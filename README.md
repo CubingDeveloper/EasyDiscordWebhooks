@@ -45,4 +45,4 @@ EasyDiscordWebhooks:ConnectWebhook(
 Perfect! If you have the `AlertOnConnection` value set to true you should be able to run the game and see a message from the webhook!
 
 ### Sending your first message
-
+Sending simple messages is really simple, all you need to do is use the `.Post()` function. The `.Post()` function is very similar to `print()` except it sends it to the webhook. Tables will not be formatted (yet) and instead send something like `table: MEMORY-ADRESS`. To send the message "Hello World!" you could do it one of these ways:
