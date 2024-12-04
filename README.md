@@ -103,7 +103,7 @@ local myProfile = EasyDiscordWebhooks.Profiles.New()
 ```
 Profiles can also be generated using authors:
 ```lua
-local myProfile = EasyDiscordWebhooks.Profiles.FromAuthor(EasyDiscordModule.Embeds.AuthorFromUsername("CubingDeveloper"))
+local myProfile = EasyDiscordWebhooks.Profiles.FromAuthor(EasyDiscordWebhooks.Embeds.AuthorFromUsername("CubingDeveloper"))
 ```
 Now to send a message using this profile you can use the `:Send()` method. It is quite similar to the `EasyDiscordWebhook.Post()` function except it uses the profile to send this message. Using `:Send()` also adds supports for embeds. For example:
 ```lua
